@@ -1,4 +1,6 @@
-![PaginatableList](https://raw.githubusercontent.com/Twotalltotems/react-native-otp-input/master/assets/otp_banner.jpg)
+> ## A patch for [@twotalltotems/react-native-otp-input](https://www.npmjs.com/package/@twotalltotems/react-native-otp-input) to fix the clipboard error that occurs when using expo js with react native version "0.74.3".
+
+---
 
 # React Native OTP Input
 

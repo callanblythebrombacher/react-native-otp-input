@@ -1,7 +1,7 @@
 /// <reference path="index.d.ts" />
-import { InputProps, OTPInputViewState } from '@twotalltotems/react-native-otp-input';
+import { InputProps, OTPInputViewState } from '@callanblythebrom/react-native-otp-input';
 import React, { Component } from 'react'
-import { View, TextInput, TouchableWithoutFeedback, Keyboard, Platform, I18nManager, EmitterSubscription, } from 'react-native'
+import { View, TextInput, TouchableWithoutFeedback, Keyboard, I18nManager, EmitterSubscription, } from 'react-native'
 import Clipboard from '@react-native-community/clipboard';
 import styles from './styles'
 import { isAutoFillSupported } from './helpers/device'
@@ -43,8 +43,10 @@ export default class OTPInputView extends Component<InputProps, OTPInputViewStat
     }
 
     componentDidMount() {
-        this.copyCodeFromClipBoardOnAndroid()
-        this.bringUpKeyBoardIfNeeded()
+        setTimeout(()=>{
+                this.bringUpKeyBoardIfNeeded();
+            },800
+           )
         this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this.handleKeyboardDidHide)
     }
 
@@ -55,12 +57,12 @@ export default class OTPInputView extends Component<InputProps, OTPInputViewStat
         this.keyboardDidHideListener?.remove()
     }
 
-    private copyCodeFromClipBoardOnAndroid = () => {
+    /*private copyCodeFromClipBoardOnAndroid = () => {
         if (Platform.OS === "android") {
             this.checkPinCodeFromClipBoard()
             this.timer = setInterval(this.checkPinCodeFromClipBoard, 400)
         }
-    }
+    }*/
 
     bringUpKeyBoardIfNeeded = () => {
         const { autoFocusOnLoad, pinCount } = this.props
@@ -158,7 +160,7 @@ export default class OTPInputView extends Component<InputProps, OTPInputViewStat
     }
 
     focusField = (index: number) => {
-        if (index < this.fields.length) {
+        if (index < this.fields.length && this.fields[index]) {
             (this.fields[index] as TextInput).focus();
             this.setState({
                 selectedIndex: index
