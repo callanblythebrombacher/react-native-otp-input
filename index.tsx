@@ -2,8 +2,8 @@
 import { InputProps, OTPInputViewState } from '@callanblythebrom/react-native-otp-input';
 import React, { Component } from 'react'
 import { View, TextInput, TouchableWithoutFeedback, Keyboard, I18nManager, EmitterSubscription, } from 'react-native'
-import Clipboard from '@react-native-community/clipboard';
 import styles from './styles'
+import Clipboard from "@react-native-clipboard/clipboard";
 import { isAutoFillSupported } from './helpers/device'
 import { codeToArray } from './helpers/codeToArray'
 
